@@ -6,8 +6,9 @@ export default async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  // Run on every route except static assets and images.
+  // Run on every route except API routes (the keepalive cron must not be
+  // redirected to /login), static assets, and images.
   matcher: [
-    "/((?!_next/static|_next/image|favicon.ico|manifest.webmanifest|icon.svg|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
+    "/((?!api/|_next/static|_next/image|favicon.ico|manifest.webmanifest|icon.svg|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
   ],
 };
