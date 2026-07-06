@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
-import { logout } from "@/app/auth/actions";
 import { AppHeader } from "@/components/app-header";
 import { Flame } from "@/components/wordmark";
 import { displayGlobalStreak } from "@/lib/streaks";
@@ -230,14 +229,6 @@ export default async function TrackPage() {
           })}
         </ol>
 
-        <form action={logout} className="mt-12 text-center">
-          <button
-            type="submit"
-            className="text-sm font-medium text-ink-soft underline-offset-4 hover:underline"
-          >
-            Sign out
-          </button>
-        </form>
       </main>
     </>
   );

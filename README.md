@@ -60,4 +60,4 @@ src/
 - [x] **Phase 2** — database schema (see `supabase/migrations/`)
 - [x] **Phase 3** — seeded "Nutrition Basics" track (5 lessons + 3 challenges, placeholder copy — see `supabase/seed.sql`)
 - [x] **Phase 4** — core loop UI (track → module → complete → streak)
-- [ ] **Phase 5** — profile / streak page
+- [x] **Phase 5** — profile / streak page
