@@ -57,7 +57,7 @@ src/
 ## Build status
 
 - [x] **Phase 1** — scaffold, Supabase connection, email/password auth
-- [ ] **Phase 2** — database schema
-- [ ] **Phase 3** — seeded "Nutrition Basics" track (5 lessons + 3 challenges)
+- [x] **Phase 2** — database schema (see `supabase/migrations/`)
+- [x] **Phase 3** — seeded "Nutrition Basics" track (5 lessons + 3 challenges, placeholder copy — see `supabase/seed.sql`)
 - [ ] **Phase 4** — core loop UI (track → module → complete → streak)
 - [ ] **Phase 5** — profile / streak page
