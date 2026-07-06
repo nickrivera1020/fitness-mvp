@@ -1,5 +1,7 @@
 # Ember (working title)
 
+**Live at: https://fitness-mvp-mvpfirst.vercel.app**
+
 A Duolingo-inspired web app for fitness beginners: short **lessons** that teach one concept, and real-world **challenges** you check off day by day to build streaks. Mobile-first, runs in any browser.
 
 **Stack:** Next.js (React) · Tailwind CSS · Supabase (database + auth) · Vercel (hosting) · GitHub (code)
