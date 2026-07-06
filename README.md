@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ember (working title)
 
-## Getting Started
+A Duolingo-inspired web app for fitness beginners: short **lessons** that teach one concept, and real-world **challenges** you check off day by day to build streaks. Mobile-first, runs in any browser.
 
-First, run the development server:
+**Stack:** Next.js (React) · Tailwind CSS · Supabase (database + auth) · Vercel (hosting) · GitHub (code)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## Running it on a new machine (Mac or PC)
+
+You only do this once per computer.
+
+1. **Install Node.js** — version 20 or newer, from [nodejs.org](https://nodejs.org) (pick the "LTS" download). This also installs `npm`.
+2. **Install Git** — from [git-scm.com](https://git-scm.com) (on Mac it may already be installed; check with `git --version` in a terminal).
+3. **Get the code:**
+   ```bash
+   git clone https://github.com/YOUR-USERNAME/fitness-mvp.git
+   cd fitness-mvp
+   ```
+4. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+5. **Add the secret keys.** Copy `.env.example` to a new file named `.env.local`, then fill in the two values from the Supabase dashboard (**Project Settings → API**). `.env.local` is deliberately *not* in Git — each machine gets its own copy, and secrets never end up on GitHub.
+6. **Run it:**
+   ```bash
+   npm run dev
+   ```
+   Open http://localhost:3000 in your browser (works great in a phone-sized browser window).
+
+## Supabase project setup (done once, ever)
+
+1. At [supabase.com](https://supabase.com) create a new project (free tier).
+2. In **Authentication → Sign In / Providers → Email**, turn **off** "Confirm email" for now — otherwise every test signup requires clicking an email link.
+3. Copy the Project URL and the anon/publishable key into `.env.local` (step 5 above).
+
+> **Free-tier note:** Supabase pauses projects after ~7 days with no traffic. Once the app is deployed, a keepalive ping will be set up so this doesn't happen.
+
+## Deploying
+
+Hosting is on Vercel, connected to this GitHub repo: every `git push` to `main` deploys automatically. The two `NEXT_PUBLIC_SUPABASE_*` values must also be added in Vercel under **Project → Settings → Environment Variables**.
+
+## How the code is organized
+
+```
+src/
+  app/            pages (each folder = a URL)
+    login/        log-in page
+    signup/       sign-up page
+    auth/         server-side login/signup/logout logic
+  components/     reusable UI pieces
+  lib/supabase/   database connection helpers
+  proxy.ts        runs before every page: refreshes login session,
+                  redirects logged-out visitors to /login
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Build status
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [x] **Phase 1** — scaffold, Supabase connection, email/password auth
+- [ ] **Phase 2** — database schema
+- [ ] **Phase 3** — seeded "Nutrition Basics" track (5 lessons + 3 challenges)
+- [ ] **Phase 4** — core loop UI (track → module → complete → streak)
+- [ ] **Phase 5** — profile / streak page

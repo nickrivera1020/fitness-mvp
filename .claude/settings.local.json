@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm --version)",
+      "Bash(git --version)",
+      "Bash(gh auth *)",
+      "Bash(npx --yes create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm --yes)",
+      "Bash(npx --yes create-next-app@latest fitness-mvp --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm --yes)",
+      "Bash(cp -R /private/tmp/claude-501/-Users-nickrivera-MVP/54653dd0-da68-4207-a31d-fab58486af8d/scratchpad/fitness-mvp/. /Users/nickrivera/MVP/)",
+      "Bash(node -e \"const f='/Users/nickrivera/MVP/package.json';const p=require\\(f\\);console.log\\(p.name\\)\")",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(git config *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
+    ]
+  }
+}
